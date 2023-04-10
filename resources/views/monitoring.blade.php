@@ -14,6 +14,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>mektep_id</th>
                         <th>Школа</th>
                         <th>Лицензия</th>
@@ -24,14 +25,15 @@
                 </thead>
 
                 <tbody>
-                    @foreach($data as $item)
-                        <tr class="{{ $item['colorClass'] }}">
+                    @foreach($data as $index => $item)
+                        <tr>
+                            <th>{{ ++$index }}</th>
                             <td>{{ $item['mektepId'] }}</td>
                             <td>{{ $item['mektepName'] }}</td>
                             <td>{{ $item['license'] }}</td>
                             <td>{{ $item['elibLog'] }}</td>
-                            <td>{{ $item['foodLog'] }}</td>
-                            <td>{{ $item['passLog'] }}</td>
+                            <td class="{{ $item['foodColor'] }}">{{ $item['foodLog'] }} &nbsp | &nbsp<strong>{{ $item['foodDiff'] }}</strong></td>
+                            <td class="{{ $item['passColor'] }}">{{ $item['passLog'] }} &nbsp | &nbsp<strong>{{ $item['passDiff'] }}</strong></td>
                         </tr>
                     @endforeach
                 </tbody>
