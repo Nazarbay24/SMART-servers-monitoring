@@ -41,10 +41,10 @@ class MonitoringController extends Controller
                 ->first();
 
 
-            if($passLog && strtotime($passLog->created_at) > ($curTime - 1800)) {
+            if($passLog && strtotime($passLog->created_at) > ($curTime - 3600)) {
                 $colorClass = 'table-success';
             }
-            else if($passLog && strtotime($passLog->created_at) > ($curTime - 5400)) {
+            else if($passLog && strtotime($passLog->created_at) > ($curTime - 7200)) {
                 $colorClass = 'table-warning';
             }
             else {
